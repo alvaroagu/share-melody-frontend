@@ -43,7 +43,7 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
       {/* Botón de toggle para desktop (colapsar/expandir) */}
       <button
         className="fixed z-50 p-2 rounded-full shadow-lg transition-all
-          bg-indigo-600 text-white hover:bg-indigo-700
+          bg-indigo-600 text-white hover:bg-red-500
           hidden lg:block
           top-4 left-4
           hover:scale-105"
@@ -59,7 +59,7 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
       {/* Botón de menú hamburguesa para móvil */}
       <button
         className="fixed z-50 p-2 rounded-full shadow-lg transition-all
-          bg-black/50 text-white hover:bg-indigo-700
+          bg-black/50 text-white hover:bg-red-500
           lg:hidden
           top-4 left-4
           hover:scale-105"
@@ -94,7 +94,11 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
           {[
             { href: "/", icon: Home, text: "Inicio" },
             { href: "/about", icon: Music, text: "Sobre mí" },
-            { href: "/projects", icon: FileMusic, text: "Proyectos" },
+            {
+              href: "/melody/my_sheet_music",
+              icon: FileMusic,
+              text: "Proyectos",
+            },
             { href: "/skills", icon: Code2, text: "Habilidades" },
           ].map((item) => {
             const Icon = item.icon;
