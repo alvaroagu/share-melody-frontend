@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="container h-[60px] mx-auto flex justify-center items-center">
       <p>
-        &copy; 2025 <span className="font-bold">AlvarWeb</span> | All rights
+        &copy; 2025 <span className="font-bold">Share Melody</span> | All rights
         reserved.
       </p>
     </div>
@@ -12,3 +12,4 @@ const Footer = () => {
 };
 
 export default Footer;
+  

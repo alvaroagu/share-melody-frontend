@@ -1,13 +1,14 @@
 "use client";
 import {
   Home,
-  User,
+  Music,
   FolderKanban,
   Code2,
   ChevronLeft,
   ChevronRight,
   Menu,
   X,
+  FileMusic,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -92,8 +93,8 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
 
           {[
             { href: "/", icon: Home, text: "Inicio" },
-            { href: "/about", icon: User, text: "Sobre mí" },
-            { href: "/projects", icon: FolderKanban, text: "Proyectos" },
+            { href: "/about", icon: Music, text: "Sobre mí" },
+            { href: "/projects", icon: FileMusic, text: "Proyectos" },
             { href: "/skills", icon: Code2, text: "Habilidades" },
           ].map((item) => {
             const Icon = item.icon;
