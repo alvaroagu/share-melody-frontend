@@ -46,7 +46,7 @@ const registerSchema = z
     path: ["confirmPassword"],
   });
 
-export function RegisterForm() {
+export function CreateRegisterForm() {
   const router = useRouter();
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),

@@ -96,7 +96,7 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
             {
               href: "/melody/my_sheet_music",
               icon: FileMusic,
-              text: "Proyectos",
+              text: "Partituras",
             },
             { href: "/melody/skills", icon: Code2, text: "Habilidades" },
           ].map((item) => {
