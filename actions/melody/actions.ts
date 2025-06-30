@@ -81,7 +81,7 @@ export const useUpdateSheetMusic = () => {
   const updateAnalysesMutation = useMutation({
     mutationKey: ["analysis"],
     mutationFn: async (data: UpdateSheetMusic) => {
-      await axiosInstance.put(`/sheet-music/${data.id}`, data);
+      await axiosInstance.patch(`/sheet-music/${data.id}`, data);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["sheet-music"] });
