@@ -92,14 +92,14 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
           </h2>
 
           {[
-            { href: "/", icon: Home, text: "Inicio" },
-            { href: "/about", icon: Music, text: "Sobre mí" },
+            { href: "/melody/dashboard", icon: Home, text: "Inicio" },
+            { href: "/melody/about", icon: Music, text: "Sobre mí" },
             {
               href: "/melody/my_sheet_music",
               icon: FileMusic,
               text: "Proyectos",
             },
-            { href: "/skills", icon: Code2, text: "Habilidades" },
+            { href: "/melody/skills", icon: Code2, text: "Habilidades" },
           ].map((item) => {
             const Icon = item.icon;
             return (
