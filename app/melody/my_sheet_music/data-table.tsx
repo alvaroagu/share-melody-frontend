@@ -19,11 +19,12 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table"; // Asumo que estas son componentes de shadcn/ui o similares con estilos base.
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { DataTablePagination } from "@/components/tables/DataTablePagination";
-
+import { CreateSheetMusicForm } from "@/components/form/CreateSheetMusicForm"; // No se usa directamente aquí, pero se mantiene la importación
+import CreateSheetMusicDialog from "@/components/misc/CreateSheetMusicDialog";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -53,32 +54,43 @@ export function DataTable<TData, TValue>({
 
   const router = useRouter();
 
-  const isFiltered = table.getState().columnFilters.length > 0;
+  const isFiltered = table.getState().columnFilters.length > 0; // Esta variable no se usa en el renderizado actual, pero se mantiene.
 
   return (
-    <>
-      <div className="flex flex-col gap-2 mb-4">
-        <h1 className="text-5xl font-bold text-center">
-          Medidas de Mitigacion
+    // Contenedor principal para centrar y dar espaciado
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8 bg-gray-50 min-h-screen rounded-lg shadow-inner">
+      {/* Sección del título y descripción */}
+      <div className="flex flex-col gap-4 mb-8 p-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <h1 className="text-5xl sm:text-6xl font-extrabold text-center tracking-tight drop-shadow-lg">
+          Partituras Musicales
         </h1>
-        <p className="text-sm italic text-muted-foreground text-center">
-          Aquí se pueden visualizar las medidas de mitigacion creadas hasta el
-          momento
+        <p className="text-base sm:text-lg italic text-white text-center opacity-90">
+          Explora y gestiona tu colección de partituras guardadas.
         </p>
       </div>
 
-      <div className="flex items-center py-4">
-        {/* <CreateVoluntaryReportDialog title="Agregar"/>
-        <DataTableViewOptions table={table} /> */}
+      {/* Contenedor para el botón de nueva partitura */}
+      <div className="flex items-center justify-end py-4">
+        {/* El componente CreateSheetMusicDialog debería tener sus propios estilos Tailwind para el botón */}
+        <CreateSheetMusicDialog title="Nueva Partitura" />
       </div>
-      <div className="rounded-md border mb-4">
-        <Table>
-          <TableHeader>
+
+      {/* Contenedor de la tabla con estilos mejorados */}
+      <div className="rounded-xl border border-gray-200 shadow-xl overflow-hidden bg-white">
+        <Table className="min-w-full divide-y divide-gray-200">
+          {/* Encabezado de la tabla */}
+          <TableHeader className="bg-gray-100">
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow
+                key={headerGroup.id}
+                className="hover:bg-gray-200 transition-colors duration-150"
+              >
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200"
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -91,15 +103,20 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          {/* Cuerpo de la tabla */}
+          <TableBody className="bg-white divide-y divide-gray-100">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="hover:bg-blue-50 transition-colors duration-200 ease-in-out cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -109,19 +126,25 @@ export function DataTable<TData, TValue>({
                 </TableRow>
               ))
             ) : (
+              // Mensaje cuando no hay resultados
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center text-muted-foreground"
+                  className="h-32 text-center text-gray-500 text-lg font-medium bg-gray-50 rounded-b-xl"
                 >
-                  No se ha encontrado ningún resultado...
+                  <p className="p-4">
+                    No se ha encontrado ninguna partitura. ¡Crea una nueva!
+                  </p>
                 </TableCell>
               </TableRow>
             )}
           </TableBody>
         </Table>
       </div>
-      <DataTablePagination table={table} />
-    </>
+      {/* Paginación de la tabla */}
+      <div className="py-4">
+        <DataTablePagination table={table} />
+      </div>
+    </div>
   );
 }

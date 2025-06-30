@@ -4,10 +4,10 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { DataTableColumnHeader } from "@/components/tables/DataTableHeader";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Payment } from "@/types";
+import { Payment, SheetMusic } from "@/types";
+import SheetMusicDropDownActions from "@/components/misc/SheetMusicDropDownActions";
 
-
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<SheetMusic>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -31,82 +31,51 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "report_number",
+    accessorKey: "title",
     header: ({ column }) => (
-      <DataTableColumnHeader filter column={column} title="Nro. de Reporte" />
+      <DataTableColumnHeader filter column={column} title="Titulo" />
+    ),
+    cell: ({ row }) => {
+      return <div className="flex justify-center">{row.original.title}</div>;
+    },
+  },
+  {
+    accessorKey: "arranger",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Arreglado por.." />
+    ),
+    cell: ({ row }) => {
+      return <p className="font-medium text-center">{row.original.arranger}</p>;
+    },
+  },
+  {
+    accessorKey: "difficulty",
+    header: ({ column }) => (
+      <DataTableColumnHeader filter column={column} title="Dificultad" />
     ),
     cell: ({ row }) => {
       return (
-        <div className="flex justify-center">
-        </div>
+        <p className="font-medium text-center">{row.original.difficulty}</p>
       );
     },
   },
   {
-    accessorKey: "incident_date",
+    accessorKey: "instrument",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Fecha del Incidente" />
+      <DataTableColumnHeader filter column={column} title="Instrumento" />
     ),
     cell: ({ row }) => {
       return (
-        <p className="font-medium text-center">
-
-        </p>
-      );
-    },
-  },
-  {
-    accessorKey: "report_date",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Fecha del reporte" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <p className="font-medium text-center">
-
-        </p>
-      );
-    },
-  },
-  {
-    accessorKey: "danger_area",
-    header: ({ column }) => (
-      <DataTableColumnHeader filter column={column} title="Area de identificacion" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <p className="font-medium text-center">{row.original.amount}</p>
-      );
-    },
-  },
-  {
-    accessorKey: "danger_location",
-    header: ({ column }) => (
-      <DataTableColumnHeader filter column={column} title="Localización del peligro" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <p className="font-medium text-center">
-          {row.original.amount}
-        </p>
+        <p className="font-medium text-center">{row.original.instrument}</p>
       );
     },
   },
 
-  {
-    accessorKey: "description",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Descripcion del peligro" />
-    ),
-    cell: ({ row }) => (
-      <div className="flex justify-center">{row.original.amount}</div>
-    ),
-  },
   {
     id: "actions",
     cell: ({ row }) => {
-      // const voluntaryReport = row.original;
-      // return <VoluntaryReportDropdownActions voluntaryReport={voluntaryReport} />;
+      const sheetMusic = row.original;
+      return <SheetMusicDropDownActions sheetMusic={sheetMusic} />;
     },
   },
 ];

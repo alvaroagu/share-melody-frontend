@@ -43,7 +43,7 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
       {/* Botón de toggle para desktop (colapsar/expandir) */}
       <button
         className="fixed z-50 p-2 rounded-full shadow-lg transition-all
-          bg-indigo-600 text-white hover:bg-red-500
+          bg-red-500 text-white hover:bg-red-500
           hidden lg:block
           top-4 left-4
           hover:scale-105"
@@ -85,7 +85,7 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
         <div className="p-4 h-full flex flex-col items-start overflow-hidden">
           {/* Título - oculto en modo colapsado */}
           <h2
-            className={`text-xl font-bold text-indigo-700 mb-8 pl-10 whitespace-nowrap
+            className={`text-md font-bold text-red-500 mb-8 pl-10 whitespace-nowrap
             ${isCollapsed ? "lg:opacity-0 lg:invisible" : "opacity-100"}`}
           >
             {title}
@@ -110,8 +110,8 @@ const Navbar = ({ onCollapseChange, title }: NavbarProps) => {
                 className={`flex items-center gap-3 w-full p-3 rounded-lg transition-colors group
                   ${
                     pathname === item.href
-                      ? "bg-indigo-50 text-indigo-600 font-medium"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-indigo-500"
+                      ? "bg-indigo-50 text-red-500 font-medium"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-red-500"
                   }`}
               >
                 <Icon className="w-5 h-5 min-w-[20px]" />

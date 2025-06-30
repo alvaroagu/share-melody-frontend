@@ -2,9 +2,9 @@
 import { ContentLayout } from "@/components/layout/ContentLayout";
 import Image from "next/image";
 
-export default function Home() {
+export default function Dashboard() {
   return (
-    <ContentLayout title="Home">
+    <ContentLayout title="Dashboard">
       <div>ACA ESTOY</div>
     </ContentLayout>
   );

@@ -1,31 +1,29 @@
 "use client";
 
 import { ContentLayout } from "@/components/layout/ContentLayout";
-import { Loader2 } from "lucide-react";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
-import { Payment } from "@/types";
+import { useGetSheetMusic } from "@/hooks/melody/useGetSheetMusic";
+import LoadingPage from "@/components/misc/LoadingPage";
 
-const MitigationMeasuresPage = () => {
-  // const { data, isLoading, isError } = useGetMitigationTable();
+const SheetMusicPage = () => {
+  const { data, isLoading, isError } = useGetSheetMusic();
 
-  // if (isLoading) {
-  //   return <LoadingPage />;
-  // }
-  const data: Payment[] = [];
-
+  if (isLoading) {
+    return <LoadingPage />;
+  }
   return (
-    <ContentLayout title="Medida de Mitigacion">
-      <div className="flex flex-col gap-y-2">
+    <ContentLayout title="Mis partituras">
+      <div className="flex flex-col gap-y-2 pt-10">
         {data && <DataTable columns={columns} data={data} />}
-        {/* {isError && (
+        {isError && (
           <p className="text-sm text-muted-foreground">
             Ha ocurrido un error al cargar los reportes...
           </p>
-        )} */}
+        )}
       </div>
     </ContentLayout>
   );
 };
 
-export default MitigationMeasuresPage;
+export default SheetMusicPage;

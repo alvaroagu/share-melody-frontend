@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -22,6 +23,7 @@ const loginSchema = z.object({
 });
 
 export function LoginForm() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -48,6 +50,7 @@ export function LoginForm() {
       toast.promise(promise, {
         loading: "Logging in...",
         success: (data) => {
+          router.push("melody/dashboard");
           return "You have been logged in successfully";
         },
         error: "Invalid credentials. Please try again.",
