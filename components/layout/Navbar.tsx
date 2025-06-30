@@ -2,7 +2,6 @@
 import {
   ChevronLeft,
   ChevronRight,
-  Code2,
   FileMusic,
   Home,
   Menu,
