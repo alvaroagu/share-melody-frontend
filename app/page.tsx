@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-[url('/main-page-image.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="relative flex min-h-screen items-center justify-center bg-[url('https://0q13aoua0x.ufs.sh/f/iFwLeXYUurfRzkvTabZQwUV3g1QhNrXKS8xTOIqckDti2nJa')] bg-cover bg-center bg-no-repeat">
       <div className="absolute inset-0 bg-black/70"></div>
 
       {/* Contenido (encima de la capa opaca) */}

@@ -11,7 +11,7 @@ export default function LoginPage() {
       <div className="hidden md:flex w-1/2 items-center justify-center bg-red-500">
         <div className="relative w-full h-full max-w-2xl max-h-[70vh]">
           <Image
-            src="/logo.png"
+            src="https://0q13aoua0x.ufs.sh/f/iFwLeXYUurfRzkVcyc0QwUV3g1QhNrXKS8xTOIqckDti2nJa"
             alt="Share Melody Logo"
             fill
             className="object-contain"
