@@ -79,22 +79,19 @@ const SheetMusicDropDownActions = ({
             <EyeIcon className="size-5" />
             <p className="pl-2">Ver</p>
           </DropdownMenuItem>
-
-
         </DropdownMenuContent>
       </DropdownMenu>
-
 
       {/* Diálogo para Eliminar */}
       <Dialog open={openDelete} onOpenChange={setOpenDelete}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle className="text-center">
-              ¿Seguro que desea eliminar el reporte?
+              ¿Seguro que desea eliminar la partitura?
             </DialogTitle>
             <DialogDescription className="text-center p-2 mb-0 pb-0">
-              Esta acción es irreversible y estaría eliminando por completo el
-              reporte seleccionado.
+              Esta acción es irreversible y estaría eliminando por completo la
+              partitura seleccionada.
             </DialogDescription>
           </DialogHeader>
 
