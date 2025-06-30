@@ -136,9 +136,9 @@ export function CreateSheetMusicForm({
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="EASY">Facil</SelectItem>
-                    <SelectItem value="MEDIUM">Medio</SelectItem>
-                    <SelectItem value="HARD">Dificil</SelectItem>
+                    <SelectItem value="Facil">Facil</SelectItem>
+                    <SelectItem value="Medio">Medio</SelectItem>
+                    <SelectItem value="Dificil">Dificil</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
