@@ -10,7 +10,6 @@ import {
   EyeIcon,
   Loader2,
   MoreHorizontal,
-  PrinterCheck,
   Trash2,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -35,7 +34,6 @@ type SheetMusicDropDownActionsProps = {
 const SheetMusicDropDownActions = ({
   sheetMusic,
 }: SheetMusicDropDownActionsProps) => {
-  const [openPDF, setOpenPDF] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
   const router = useRouter();
