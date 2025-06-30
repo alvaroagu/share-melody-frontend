@@ -15,6 +15,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import {
+  useCreateSheetMusic,
+  useUpdateSheetMusic,
+} from "@/actions/melody/actions";
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -24,10 +28,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { SheetMusic } from "@/types";
-import {
-  useCreateSheetMusic,
-  useUpdateSheetMusic,
-} from "@/actions/melody/actions";
 import { Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 
@@ -87,7 +87,7 @@ export function CreateSheetMusicForm({
       await updateSheetMusic.mutateAsync(value);
     } else {
       try {
-        const response = await createSheetMusic.mutateAsync(data);
+        await createSheetMusic.mutateAsync(data);
       } catch (error) {
         console.error("Error al crear el reporte:", error);
       }

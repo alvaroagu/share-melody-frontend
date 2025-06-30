@@ -12,6 +12,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import CreateSheetMusicDialog from "@/components/misc/CreateSheetMusicDialog";
+import { DataTablePagination } from "@/components/tables/DataTablePagination";
 import {
   Table,
   TableBody,
@@ -20,11 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"; // Asumo que estas son componentes de shadcn/ui o similares con estilos base.
-import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { DataTablePagination } from "@/components/tables/DataTablePagination";
-import { CreateSheetMusicForm } from "@/components/form/CreateSheetMusicForm"; // No se usa directamente aquí, pero se mantiene la importación
-import CreateSheetMusicDialog from "@/components/misc/CreateSheetMusicDialog";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -51,10 +49,6 @@ export function DataTable<TData, TValue>({
       columnFilters,
     },
   });
-
-  const router = useRouter();
-
-  const isFiltered = table.getState().columnFilters.length > 0; // Esta variable no se usa en el renderizado actual, pero se mantiene.
 
   return (
     // Contenedor principal para centrar y dar espaciado

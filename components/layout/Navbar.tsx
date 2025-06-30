@@ -1,14 +1,13 @@
 "use client";
 import {
-  Home,
-  Music,
-  FolderKanban,
-  Code2,
   ChevronLeft,
   ChevronRight,
-  Menu,
-  X,
+  Code2,
   FileMusic,
+  Home,
+  Menu,
+  Music,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

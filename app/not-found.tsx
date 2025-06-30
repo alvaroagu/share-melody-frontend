@@ -1,7 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Music, Plane } from "lucide-react";
-import Link from "next/link";
+import { Music } from "lucide-react";
 
 export default function NotFound() {
   return (

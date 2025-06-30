@@ -1,6 +1,5 @@
 "use client";
 import { ContentLayout } from "@/components/layout/ContentLayout";
-import Image from "next/image";
 
 export default function Home() {
   return (

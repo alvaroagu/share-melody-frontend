@@ -37,7 +37,7 @@ export function LoginForm() {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     try {
       // Simular llamada API
-      const promise = new Promise((resolve, reject) => {
+      const promise = new Promise((resolve) => {
         setTimeout(() => {
           // Aquí iría tu lógica real de autenticación
           console.log("Login values:", values);
@@ -49,7 +49,7 @@ export function LoginForm() {
 
       toast.promise(promise, {
         loading: "Logging in...",
-        success: (data) => {
+        success: () => {
           router.push("melody/dashboard");
           return "You have been logged in successfully";
         },

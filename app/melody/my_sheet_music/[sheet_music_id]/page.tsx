@@ -1,28 +1,20 @@
 "use client";
 
 import { ContentLayout } from "@/components/layout/ContentLayout";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useGetSheetMusicById } from "@/hooks/melody/useGetSheetMusicById";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Loader2,
-  FileText,
-  User,
-  Disc3,
-  ScrollText,
-  Gauge,
   AlertTriangle,
+  Disc3,
   File,
+  FileText,
+  Gauge,
+  Loader2,
   Music,
+  ScrollText,
+  User,
 } from "lucide-react";
 import { useParams } from "next/navigation";
-import { useGetSheetMusicById } from "@/hooks/melody/useGetSheetMusicById";
 
 const ShowSheetMusic = () => {
   const { sheet_music_id } = useParams<{ sheet_music_id: string }>();

@@ -15,7 +15,6 @@ import {
   Download,
   Share2,
   MessageSquare,
-  Calendar,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -168,13 +167,6 @@ export default function MusicDashboard() {
             </div>
           </section>
         </main>
-
-        {/* Footer */}
-        <footer className="bg-gray-100 p-6 border-t">
-          <div className="container mx-auto text-center text-gray-600">
-            <p>© 2023 Melodía Compartida - Todos los derechos reservados</p>
-          </div>
-        </footer>
       </div>
     </ContentLayout>
   );

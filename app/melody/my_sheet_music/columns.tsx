@@ -4,7 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { DataTableColumnHeader } from "@/components/tables/DataTableHeader";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Payment, SheetMusic } from "@/types";
+import {  SheetMusic } from "@/types";
 import SheetMusicDropDownActions from "@/components/misc/SheetMusicDropDownActions";
 
 export const columns: ColumnDef<SheetMusic>[] = [
