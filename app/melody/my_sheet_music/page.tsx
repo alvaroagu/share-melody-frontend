@@ -18,7 +18,7 @@ const SheetMusicPage = () => {
         {data && <DataTable columns={columns} data={data} />}
         {isError && (
           <p className="text-sm text-muted-foreground">
-            Ha ocurrido un error al cargar los reportes...
+            Ha ocurrido un error al cargar las partituras...
           </p>
         )}
       </div>
