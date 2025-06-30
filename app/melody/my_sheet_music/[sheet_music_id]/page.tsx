@@ -14,6 +14,7 @@ import {
   ScrollText,
   User,
 } from "lucide-react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const ShowSheetMusic = () => {
@@ -71,13 +72,17 @@ const ShowSheetMusic = () => {
               {sheetMusic.title}
             </h1>
             <div className="flex gap-2">
-              <Button
-                variant="outline"
-                className="bg-white/10 hover:bg-white/20"
-              >
-                <FileText className="mr-2 h-4 w-4" />
-                Descargar
-              </Button>
+              {sheetMusic.file_path && (
+                <Link href={sheetMusic.file_path}>
+                  <Button
+                    variant="outline"
+                    className="bg-white/10 hover:bg-white/20"
+                  >
+                    <FileText className="mr-2 h-4 w-4" />
+                    Descargar
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -165,7 +170,17 @@ const ShowSheetMusic = () => {
                   <p className="text-center text-gray-600">
                     Partitura disponible
                   </p>
-                  <Button className="mt-4">Ver partitura</Button>
+                  {sheetMusic.file_path && (
+                    <Link href={sheetMusic.file_path}>
+                      <Button
+                        variant="outline"
+                        className="bg-white/10 hover:bg-white/20"
+                      >
+                        <FileText className="mr-2 h-4 w-4" />
+                        Ver partitura
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               ) : (
                 <div className="flex-grow flex flex-col items-center justify-center gap-4 p-4 border-2 border-dashed border-gray-200 rounded-lg bg-white">

@@ -80,24 +80,10 @@ const SheetMusicDropDownActions = ({
             <p className="pl-2">Ver</p>
           </DropdownMenuItem>
 
-          <DropdownMenuItem onClick={() => setOpenPDF(true)}>
-            <PrinterCheck className="size-5" />
-            <p className="pl-2">Descargar PDF</p>
-          </DropdownMenuItem>
+
         </DropdownMenuContent>
       </DropdownMenu>
 
-      {/* Diálogo para PDF */}
-      <Dialog open={openPDF} onOpenChange={setOpenPDF}>
-        <DialogContent className="sm:max-w-[65%] max-h-[80vh]">
-          <DialogHeader>
-            <DialogTitle>Vista Previa del Reporte</DialogTitle>
-            <DialogDescription>
-              Revisa el reporte antes de descargarlo.
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
 
       {/* Diálogo para Eliminar */}
       <Dialog open={openDelete} onOpenChange={setOpenDelete}>

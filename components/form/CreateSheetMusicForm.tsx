@@ -72,7 +72,6 @@ export function CreateSheetMusicForm({
       arranger: initialData?.arranger || "",
       composer: initialData?.composer || "",
       difficulty: initialData?.difficulty || "",
-      //possible_consequences: initialData?.file_path || "",
       instrument: initialData?.instrument || "",
       description: initialData?.description,
     },
@@ -261,7 +260,7 @@ export function CreateSheetMusicForm({
           {createSheetMusic.isPending ? (
             <Loader2 className="size-4 animate-spin" />
           ) : (
-            "Enviar Reporte"
+            "Enviar"
           )}
         </Button>
       </form>

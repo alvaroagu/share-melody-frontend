@@ -13,7 +13,7 @@ export type SheetMusic = {
   arranger: string;
   instrument: string;
   difficulty: string;
-  file_path?: File;
+  file_path?: string;
 };
 
 export type Project = {
