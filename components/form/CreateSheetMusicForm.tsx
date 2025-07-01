@@ -49,7 +49,13 @@ export function CreateSheetMusicForm({
     arranger: z.string(),
     composer: z.string(),
     instrument: z.string(),
-    difficulty: z.string(),
+    difficulty: z
+      .string()
+      .min(1, "La dificultad no puede estar vacía") // No vacío
+      .trim() // Elimina espacios al inicio y final
+      .refine((value) => value !== "", {
+        message: "La dificultad no puede ser solo espacios en blanco",
+      }),
     file_path: z
       .instanceof(File)
       .refine((file) => file.size <= 5 * 1024 * 1024, "Máximo 5MB")
