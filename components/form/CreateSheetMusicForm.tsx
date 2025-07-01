@@ -48,7 +48,13 @@ export function CreateSheetMusicForm({
     description: z.string(),
     arranger: z.string(),
     composer: z.string(),
-    instrument: z.string(),
+    instrument: z
+      .string()
+      .min(1, "El instrumento no puede estar vacío") // No vacío
+      .trim() // Elimina espacios al inicio y final
+      .refine((value) => value !== "", {
+        message: "El instrumento no puede ser solo espacios en blanco",
+      }),
     difficulty: z
       .string()
       .min(1, "La dificultad no puede estar vacía") // No vacío
